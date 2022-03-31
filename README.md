@@ -14,7 +14,7 @@ You can easily use custom dataLayer, multiple dataLayers and additional events.
 [npm](https://www.npmjs.com/):
 
 ```bash
-npm install react-gtm-module --save
+npm install --save github:DAICAR-SRL/react-gtm
 ```
 
 ## Usage
@@ -191,7 +191,7 @@ TagManager.initialize(tagManagerArgs)
 Go to Google Tag Manager -> ADMIN -> Environments -> Actions -> Get Snippet.
 Look for gtm_auth and gtm_preview
 
-##### Don't know to use GTM environments? 
+##### Don't know to use GTM environments?
    - https://support.google.com/tagmanager/answer/6311518
    - https://www.simoahava.com/analytics/better-qa-with-google-tag-manager-environments/
 
