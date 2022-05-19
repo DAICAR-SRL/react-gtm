@@ -15,10 +15,13 @@ const TagManager = {
       return noscript
     }
 
-    const script = () => {
+    const script = (defer) => {
       const script = document.createElement('script')
       script.innerHTML = snippets.script
       script.setAttribute('data-cookieconsent', 'ignore')
+      if (defer) {
+        script.setAttribute('defer', '')
+      }
       return script
     }
 
@@ -30,7 +33,7 @@ const TagManager = {
       dataScript
     }
   },
-  initialize: function ({ gtmId, events = {}, dataLayer, dataLayerName = 'dataLayer', auth = '', preview = '' }) {
+  initialize: function ({ gtmId, events = {}, dataLayer, dataLayerName = 'dataLayer', auth = '', preview = '', defer = false }) {
     const gtm = this.gtm({
       id: gtmId,
       events: events,
@@ -40,7 +43,7 @@ const TagManager = {
       preview
     })
     if (dataLayer) document.head.appendChild(gtm.dataScript)
-    document.head.insertBefore(gtm.script(), document.head.childNodes[0])
+    document.head.insertBefore(gtm.script(defer), document.head.childNodes[0])
     document.body.insertBefore(gtm.noScript(), document.body.childNodes[0])
   },
   dataLayer: function ({dataLayer, dataLayerName = 'dataLayer'}) {
